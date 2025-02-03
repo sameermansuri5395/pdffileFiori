@@ -1,0 +1,69 @@
+<mvc:View
+    controllerName="com.pdfextract.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified">
+    
+    <Page title="PDF Data Extraction">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <u:FileUploader
+                    id="fileUploader"
+                    name="pdfFile"
+                    uploadUrl="upload/"
+                    fileType="pdf"
+                    tooltip="Upload PDF File"
+                    uploadComplete="handleUploadComplete"
+                    change="handleFileSelect"
+                    style="Emphasized"
+                    width="400px"
+                    placeholder="Choose a PDF file">
+                </u:FileUploader>
+                
+                <Table
+                    id="salesOrderTable"
+                    items="{/SalesOrderItems}"
+                    visible="false">
+                    <columns>
+                        <Column>
+                            <Text text="Sales Order ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Customer" />
+                        </Column>
+                        <Column>
+                            <Text text="Item" />
+                        </Column>
+                        <Column>
+                            <Text text="Quantity" />
+                        </Column>
+                        <Column>
+                            <Text text="Price" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{SalesOrderId}" />
+                                <Text text="{Customer}" />
+                                <Text text="{Item}" />
+                                <Text text="{Quantity}" />
+                                <Text text="{Price}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button 
+                    text="Save to Backend"
+                    type="Emphasized"
+                    press="onSavePress"
+                    enabled="{viewModel>/hasExtractedData}"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
