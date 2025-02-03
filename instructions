@@ -1,0 +1,24 @@
+To use this application, you'll need to:
+Include the pdf.js library in your project (you can download it from Mozilla's GitHub repository)
+Create an OData service with these entities:
+SalesOrderHeaderSet
+SalesOrderItemSet
+The application flow:
+User selects a PDF file using the FileUploader
+The PDF is processed using pdf.js library
+Text is extracted and parsed into a structured format
+Data is displayed in a table for review
+User can save the extracted data to the backend using OData service
+Important notes:
+1. The _parseExtractedText function needs to be implemented according to your PDF structure. You'll need to add logic to identify and extract the relevant information based on your specific PDF layout.
+You'll need to modify the OData service path in the manifest.json to match your backend service.
+The data structure should match your backend entities.
+Error handling and validation should be added based on your requirements.
+You might want to add loading indicators and additional error handling for better user experience.
+To enhance this application, you could:
+Add preview functionality for the PDF
+Add validation before saving
+Add the ability to edit extracted data before saving
+Add a status indicator for the extraction process
+Implement batch processing for multiple PDFs
+Remember to adjust the parsing logic based on your PDF structure and add appropriate error handling and validation according to your business requirements.
