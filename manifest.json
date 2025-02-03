@@ -1,0 +1,29 @@
+{
+    "sap.app": {
+        "id": "com.pdfextract",
+        "type": "application",
+        "title": "PDF Data Extraction",
+        "description": "Extract data from PDF and save to backend",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/YOUR_SERVICE_NAME/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui5": {
+        "models": {
+            "": {
+                "dataSource": "mainService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "useBatch": true
+                }
+            }
+        }
+    }
+}
