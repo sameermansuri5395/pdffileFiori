@@ -1,3 +1,21 @@
+{
+  "sap.ui5": {
+    "resources": {
+      "js": [
+        {
+          "uri": "libs/pdfjs/build/pdf.js"
+        }
+      ],
+      "css": [
+        {
+          "uri": "libs/pdfjs/web/viewer.css"
+        }
+      ]
+    }
+  }
+}
+
+
 Important Notes:
 Replace com/pdfextract in all paths with your actual application namespace
 The _parseExtractedText function needs to be implemented based on your PDF structure
